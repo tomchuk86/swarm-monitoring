@@ -1,0 +1,22 @@
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1h
+  receiver: 'email-and-telegram'
+
+receivers:
+- name: 'email-and-telegram'
+  email_configs:
+  - to: 'tomchuk8@yandex.ru'
+    from: 'vortex6321@gmail.com'
+    smarthost: 'smtp.gmail.com:587'
+    auth_username: 'vortex6321@gmail.com'
+    auth_password: 'Di18062004ma@'
+    require_tls: true
+  
+  telegram_configs:
+  - api_url: "https://api.telegram.org"
+    bot_token: "7864650065:AAFtUF1zsNawuvveijyHajcN_RZz26tkw5E"
+    chat_id: 625097118
+    send_resolved: true
